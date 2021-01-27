@@ -12,13 +12,14 @@ import multi from "redux-multi";
 // Middleware
 import promise from "redux-promise";
 import thunk from "redux-thunk";
-import App from "./App";
 import reducers from "./reducers";
 import "./index.css";
 import "./style/custom.css";
 import "./style/sb-admin-2.css";
 import "./style/style.scss";
 import * as serviceWorker from "./serviceWorker";
+
+import AppSwitch from "./AppSwitch";
 
 toast.configure();
 
@@ -47,11 +48,7 @@ const store = applyMiddleware(thunk, multi, promise)(createStore)(
 
 // store é o carinha que recebe todos os estados
 ReactDOM.render(
-  <Provider store={store}>
-    <Router>
-      <App />
-    </Router>
-  </Provider>,
+  <AppSwitch store={store}/>,
   document.getElementById("root")
 );
 
