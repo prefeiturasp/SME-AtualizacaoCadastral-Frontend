@@ -111,15 +111,7 @@ export class PainelGerencial extends Component {
                             </div>
                           </div>
                           <div
-                            onClick={() =>
-                              perfilEscola() &&
-                              this.props.history.push(
-                                `/${path_adm}/lista-alunos?status=Cadastro Atualizado e validado`
-                              )
-                            }
-                            className={`colored ${
-                              perfilEscola() ? "cursor" : undefined
-                            } third-card mt-4`}
+                            className={`colored third-card mt-4`}
                           >
                             <span className="bigger-label">Total:</span>
                             <span className="number">
@@ -143,15 +135,7 @@ export class PainelGerencial extends Component {
                           <hr />
                           <div className="card-body padding-altered">
                             <div
-                              onClick={() =>
-                                perfilEscola() &&
-                                this.props.history.push(
-                                  `/${path_adm}/lista-alunos?status=Cadastro Desatualizado`
-                                )
-                              }
-                              className={`colored ${
-                                perfilEscola() ? "cursor" : undefined
-                              } fourth-card`}
+                              className={`colored fourth-card`}
                             >
                               <span className="number">
                                 {dados.cadastros_desatualizados}
@@ -174,15 +158,7 @@ export class PainelGerencial extends Component {
                             <hr />
                             <div className="card-body padding-altered">
                               <div
-                                onClick={() =>
-                                  perfilEscola() &&
-                                  this.props.history.push(
-                                    `/${path_adm}/lista-alunos?status=Cadastro com Pendência Resolvida`
-                                  )
-                                }
-                                className={`colored ${
-                                  perfilEscola() ? "cursor" : undefined
-                                } fifth-card`}
+                                className={`colored fifth-card`}
                               >
                                 <span className="number">
                                   {dados.cadastros_com_pendencias_resolvidas}
@@ -206,15 +182,7 @@ export class PainelGerencial extends Component {
                             <hr />
                             <div className="card-body padding-altered">
                               <div
-                                onClick={() =>
-                                  perfilEscola() &&
-                                  this.props.history.push(
-                                    `/${path_adm}/lista-alunos?status=Cadastro Divergente`
-                                  )
-                                }
-                                className={`colored ${
-                                  perfilEscola() ? "cursor" : undefined
-                                } sixth-card`}
+                                className={`colored sixth-card`}
                               >
                                 <span className="number">
                                   {dados.cadastros_divergentes}
