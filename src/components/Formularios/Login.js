@@ -120,6 +120,15 @@ export const Login = () => {
                 setCodEolBloqueio([...codEolBloqueio, inputCodigoEol]);
                 limpaFormulario(formEvent);
                 setLoading(false);
+            } else if (retorno_api.detail === "Os dados do responsável já estão completos no EOL.") {
+                mensagem.setAbrirModal(true);
+                mensagem.setTituloModal("Cadastro Completo");
+                mensagem.setMsg(retorno_api.detail);
+                setCollapse("");
+                setBtnDisable(false);
+                setCodEolBloqueio([...codEolBloqueio, inputCodigoEol]);
+                limpaFormulario(formEvent);
+                setLoading(false);
             } else if (retorno_api.detail.responsaveis.length <= 0 ) {
                 mensagem.setAbrirModal(true);
                 mensagem.setTituloModal("Aluno com cadastro incompleto");
