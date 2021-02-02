@@ -16,7 +16,6 @@ import {
   BUTTON_STYLE,
 } from "../../components/Botao/constants";
 import "./style.scss";
-import { ToggleSwitch } from "../../components/ToggleSwitch";
 import InputText from "../../components/Input/InputText";
 import {
   required,
@@ -228,12 +227,35 @@ export class FormularioAluno extends Component {
         if (response.status === HTTP_STATUS.OK) {
           this.setState({showBotao: false});
           toastSuccess(response.data.detail);
+          this.funcaoInicial();
         } else {
           toastError(getError(response.data));
         }
         
       }
     )
+  }
+
+  mostraMensagem(aluno) {
+    if (aluno.responsaveis) {
+      let status_responsavel = aluno.responsaveis[0].status
+      return (
+        status_responsavel === "DIVERGENTE" ? 
+          "Dados divergentes da/o responsável informados pela família no formulário online." : (
+            status_responsavel === "ATUALIZADO_EOL" ? "Dados do(a) responsável já estão completos no EOL." : "Responsável ainda precisa realizar a atualização cadastral.")
+      )
+    }
+  }
+
+  getColor(aluno) {
+    if (aluno.responsaveis) {
+      let status_responsavel = aluno.responsaveis[0].status
+      if(status_responsavel === "ATUALIZADO_EOL" ) {
+        return "green"
+      } else {
+        return "orange"
+      }
+    }
   }
 
   render() {
@@ -270,6 +292,14 @@ export class FormularioAluno extends Component {
             {!loading && aluno && (
               <Fragment>
                 <form formKey={2} onSubmit={handleSubmit(this.onSubmit)}>
+                  <div className="row mb-3">
+                    <div className="col-12">
+                    <span
+                        style={{backgroundColor: this.getColor(aluno)}}
+                      >{aluno.responsaveis !== undefined ? this.mostraMensagem(aluno): null}
+                      </span>
+                    </div>
+                  </div>
                   <div className="row pb-3">
                     <div className="col-6">
                       <div className="card-title">
@@ -318,6 +348,7 @@ export class FormularioAluno extends Component {
                         />
                       </div>) : null
                     }
+
                   </div>
                   <div className={`${!editar ? "set-opacity" : undefined}`}>
                     <FormSection name="responsavel">
