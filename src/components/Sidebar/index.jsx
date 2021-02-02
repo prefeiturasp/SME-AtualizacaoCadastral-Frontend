@@ -85,7 +85,7 @@ export class Sidebar extends Component {
                 </NavLink>
               </li>
             )}
-            {perfilEscola() && (
+            {/* {perfilEscola() && (
               <li className="nav-item">
                 <NavLink
                   className={`nav-link collapsed`}
@@ -95,7 +95,7 @@ export class Sidebar extends Component {
                   <span>Inconsistências retornadas pela Mercado Pago</span>
                 </NavLink>
               </li>
-            )}
+            )} */}
           </div>
           {!toggled && (
             <div className="text-center page-footer mt-auto justify-content-center mb-3 pb-2">
