@@ -120,6 +120,15 @@ export const Login = () => {
                 setCodEolBloqueio([...codEolBloqueio, inputCodigoEol]);
                 limpaFormulario(formEvent);
                 setLoading(false);
+            } else if (retorno_api.detail === "Os dados do responsável já estão completos no EOL.") {
+                mensagem.setAbrirModal(true);
+                mensagem.setTituloModal("Cadastro Completo");
+                mensagem.setMsg(retorno_api.detail);
+                setCollapse("");
+                setBtnDisable(false);
+                setCodEolBloqueio([...codEolBloqueio, inputCodigoEol]);
+                limpaFormulario(formEvent);
+                setLoading(false);
             } else if (retorno_api.detail.responsaveis.length <= 0 ) {
                 mensagem.setAbrirModal(true);
                 mensagem.setTituloModal("Aluno com cadastro incompleto");
@@ -199,7 +208,7 @@ export const Login = () => {
         <div className="w-100 formulario-inicial-home pt-5 pb-5 ">
             <div className="container">
                 <h2 className="text-white mb-xs-5">
-                    Acesse o formulário para solicitar o uniforme escolar.{" "}
+                    Acesse o formulário para atualizar os dados da(o) responsável.{" "}
                 </h2>
                 <form
                     onSubmit={handleSubmit(onSubmitAbrirFormulario)}

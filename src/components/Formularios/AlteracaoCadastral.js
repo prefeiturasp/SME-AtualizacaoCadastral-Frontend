@@ -201,12 +201,7 @@ export const AlteracaoCadastral = (parametros) => {
       );
     }
 
-    if (data.nao_possui_email) {
-      data.email_responsavel = null;
-    } else {
-      data.email_responsavel = data.email_responsavel.trimEnd().trimStart();
-    }
-
+    data.email_responsavel = data.email_responsavel.trimEnd().trimStart();
     data.cd_cpf_responsavel = data.cd_cpf_responsavel.replace(/-/g, "");
     data.cd_cpf_responsavel = data.cd_cpf_responsavel.replace(/\./g, "");
     data.codigo_eol_aluno = String(inputCodigoEol);
@@ -360,7 +355,7 @@ export const AlteracaoCadastral = (parametros) => {
         onSubmit={handleSubmit(onSubmitAtualizacaoCadastral)}
       />
       <div className={`collapse ${collapse}  pt-5`} id="">
-        <h2 className="text-white mb-4">Solicitação de uniforme escolar.</h2>
+        <h2 className="text-white mb-4">Atualização cadastral.</h2>
         <div className="container-form-dados-responsável p-4 ">
           <p className="mb-4">
             <strong>
@@ -409,36 +404,6 @@ export const AlteracaoCadastral = (parametros) => {
                     <label htmlFor="email_responsavel">
                       <strong>E-mail do responsável*</strong>
                     </label>
-
-                    <div className="row">
-                      <div className="col-12">
-                        <div className="form-check form-check-inline">
-                          <input
-                            className="form-check-input"
-                            type="checkbox"
-                            name="nao_possui_email"
-                            id="nao_possui_email"
-                            ref={(e) => {
-                              register(e);
-                            }}
-                            checked={state.nao_possui_email}
-                            onChange={(e) =>
-                              handleChangeAtualizacaoCadastral(
-                                e.target.name,
-                                e.target.checked
-                              )
-                            }
-                          />
-                          <label
-                            className="form-check-label"
-                            htmlFor="nao_possui_email"
-                          >
-                            Não possuo e-mail
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-
                     <input
                       placeholder={
                         !state.nao_possui_email ? "Digite um email válido" : ""
@@ -853,7 +818,7 @@ export const AlteracaoCadastral = (parametros) => {
                   disable={handleBtnSolicitarUniforme()}
                   type="submit"
                   classeCss="btn btn-primary"
-                  texto="Solicitar uniforme"
+                  texto="Atualizar Informações"
                 />
               </div>
             </div>
