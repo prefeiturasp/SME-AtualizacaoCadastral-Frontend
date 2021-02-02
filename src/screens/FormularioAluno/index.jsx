@@ -280,12 +280,6 @@ export class FormularioAluno extends Component {
                         Dados do responsável pelo estudante
                       </div>
                     </div>
-                    <div className="col-6 text-right">
-                      <ToggleSwitch
-                        onClick={() => this.setState({ editar: !editar })}
-                        texto="Editar informações"
-                      />
-                    </div>
                   </div>
                   <div className={`${!editar ? "set-opacity" : undefined}`}>
                     <FormSection name="responsavel">
