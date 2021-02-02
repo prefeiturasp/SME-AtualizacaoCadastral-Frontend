@@ -70,119 +70,24 @@ export class PainelGerencial extends Component {
                 <Fragment>
                   <div className="row">
                     <div className="col-6">
-                      <div className="card">
-                        <div className="card-title">Cadastros validados</div>
-                        <hr />
-                        <div className="card-body padding-altered">
-                          <div className="row">
-                            <div className="col-6">
-                              <div
-                                className={`colored ${
-                                  perfilEscola() ? "cursor" : undefined
-                                } first-card`}
-                              >
-                                <div className="number">
-                                  {dados.cadastros_validados.alunos_online}
-                                </div>
-                                <div className="bigger-label">
-                                  {dados.cadastros_validados.alunos_online === 1
-                                    ? "aluno"
-                                    : "alunos"}
-                                </div>
-                                <div className="smaller-label">on-line</div>
-                              </div>
-                            </div>
-                            <div className="col-6">
-                              <div
-                                className={`colored ${
-                                  perfilEscola() ? "cursor" : undefined
-                                } second-card`}
-                              >
-                                <div className="number">
-                                  {dados.cadastros_validados.alunos_escola}
-                                </div>
-                                <div className="bigger-label">
-                                  {dados.cadastros_validados.alunos_escola === 1
-                                    ? "aluno"
-                                    : "alunos"}
-                                </div>
-                                <div className="smaller-label">escola</div>
-                              </div>
-                            </div>
-                          </div>
-                          <div
-                            className={`colored third-card mt-4`}
-                          >
-                            <span className="bigger-label">Total:</span>
-                            <span className="number">
-                              {dados.cadastros_validados.total}
-                            </span>
-                            <span className="bigger-label">
-                              {dados.cadastros_validados.total === 1
-                                ? "aluno"
-                                : "alunos"}
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-6">
-                      {perfilEscola() && (
-                        <div className="card">
-                          <div className="card-title">
-                            Cadastros desatualizados
-                          </div>
-                          <hr />
-                          <div className="card-body padding-altered">
-                            <div
-                              className={`colored fourth-card`}
-                            >
-                              <span className="number">
-                                {dados.cadastros_desatualizados}
-                              </span>
-                              <span className="bigger-label">
-                                {dados.cadastros_desatualizados === 1
-                                  ? "aluno"
-                                  : "alunos"}
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      )}
                       <div className="row pt-2">
                         <div className="col-6">
                           <div className="card">
                             <div className="card-title">
-                              Cadastros com <br /> pendências resolvidas
+                              Cadastros divergentes
                             </div>
                             <hr />
                             <div className="card-body padding-altered">
                               <div
-                                className={`colored fifth-card`}
-                              >
-                                <span className="number">
-                                  {dados.cadastros_com_pendencias_resolvidas}
-                                </span>
-                                <br />
-                                <span className="bigger-label">
-                                  {dados.cadastros_com_pendencias_resolvidas ===
-                                  1
-                                    ? "aluno"
-                                    : "alunos"}
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="col-6">
-                          <div className="card">
-                            <div className="card-title">
-                              Cadastros <br /> divergentes
-                            </div>
-                            <hr />
-                            <div className="card-body padding-altered">
-                              <div
-                                className={`colored sixth-card`}
+                                onClick={() =>
+                                  perfilEscola() &&
+                                  this.props.history.push(
+                                    `/${path_adm}/lista-alunos?status=Cadastro Divergente`
+                                  )
+                                }
+                                className={`colored ${
+                                  perfilEscola() ? "cursor" : undefined
+                                } first-card`}
                               >
                                 <span className="number">
                                   {dados.cadastros_divergentes}
@@ -200,117 +105,6 @@ export class PainelGerencial extends Component {
                       </div>
                     </div>
                   </div>
-                  <div className="row">
-                    <div className="col-6">
-                      <div className="card">
-                        <div className="card-title">
-                          Cadastros inconsistentes
-                        </div>
-                        <hr />
-                        <div className="card-body padding-altered">
-                          <div className="row">
-                            <div className="col-6">
-                              <div className="colored seventh-card">
-                                <div className="number">
-                                  {dados.email_invalido}
-                                </div>
-                                <div className="bigger-label">
-                                  {dados.email_invalido === 1
-                                    ? "aluno"
-                                    : "alunos"}
-                                </div>
-                                <div className="smaller-label">
-                                  E-mail inválido
-                                </div>
-                              </div>
-                            </div>
-                            <div className="col-6">
-                              <div className="colored eighth-card">
-                                <div className="number">
-                                  {dados.cpf_invalido}
-                                </div>
-                                <div className="bigger-label">
-                                  {`aluno${
-                                    dados.cpf_invalido !== 1 ? "s" : ""
-                                  }`}
-                                </div>
-                                <div className="smaller-label">
-                                  CPF inválido
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="colored ninth-card mt-4">
-                            <span className="number">
-                              {dados.multiplos_emails}
-                            </span>
-                            <span className="bigger-label">
-                              {dados.multiplos_emails === 1
-                                ? "aluno"
-                                : "alunos"}
-                            </span>
-                            <div className="smaller-label">
-                              Mais de um e-mail cadastrado
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-6">
-                      <div className="card mt-2">
-                        <div className="card-title">
-                          Inconsistências resolvidas
-                        </div>
-                        <hr />
-                        <div className="card-body padding-altered">
-                          <div className="colored tenth-card">
-                            <span className="number">
-                              {dados.inconsistencias_resolvidas}
-                            </span>
-                            <span className="bigger-label">
-                              {dados.inconsistencias_resolvidas === 1
-                                ? "aluno"
-                                : "alunos"}
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="card mt-2">
-                        <div className="card-title">Créditos concedidos</div>
-                        <hr />
-                        <div className="card-body padding-altered">
-                          <div className="colored eleventh-card">
-                            <span className="number">
-                              {dados.creditos_concedidos}
-                            </span>
-                            <span className="bigger-label">
-                              {dados.creditos_concedidos === 1
-                                ? "aluno"
-                                : "alunos"}
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </Fragment>
-              )}
-            </div>
-          </div>
-          <div className="card graph mt-3">
-            <div className="card-body">
-              {!dados && !responseError && <div>Carregando...</div>}
-              {dados && dados.total_alunos === 0 && (
-                <div>Nenhum dado disponível para o gráfico.</div>
-              )}
-              {responseError && <div>Erro ao carregar gráficos.</div>}
-              {dados && dados.total_alunos > 0 && (
-                <Fragment>
-                  <div className="title">
-                    <i className="fas fa-chart-pie" />
-                    Estado da atualização cadastral
-                  </div>
-                  <GraficoPizza dados={formatarDados(dados)} />
                 </Fragment>
               )}
             </div>
