@@ -71,7 +71,7 @@ export class PainelGerencial extends Component {
                   <div className="row">
                     <div className="col-6">
                       <div className="row pt-2">
-                        <div className="col-6">
+                        <div className="col-12">
                           <div className="card">
                             <div className="card-title">
                               Cadastros divergentes
@@ -81,13 +81,14 @@ export class PainelGerencial extends Component {
                               <div
                                 onClick={() =>
                                   perfilEscola() &&
+                                  dados.cadastros_divergentes > 0 &&
                                   this.props.history.push(
                                     `/${path_adm}/lista-alunos?status=Cadastro Divergente`
                                   )
                                 }
                                 className={`colored ${
                                   perfilEscola() ? "cursor" : undefined
-                                } first-card`}
+                                } sixth-card`}
                               >
                                 <span className="number">
                                   {dados.cadastros_divergentes}
