@@ -581,7 +581,7 @@ export const AlteracaoCadastral = (parametros) => {
                   <strong>Vínculo com o(a) estudante*</strong>
                 </label>
                 <div className="d-flex flex-wrap justify-content-between">
-                  <div className="pl-4 container-radio">
+                  <div className="pl-4 container-radio-2">
                     <input
                       ref={(e) => {
                         register(e);
@@ -604,7 +604,7 @@ export const AlteracaoCadastral = (parametros) => {
                     </label>
                   </div>
 
-                  <div className="pl-4 container-radio">
+                  <div className="pl-4 container-radio-2">
                     <input
                       ref={(e) => {
                         register(e);
@@ -626,7 +626,7 @@ export const AlteracaoCadastral = (parametros) => {
                       <strong>Pai</strong>
                     </label>
                   </div>
-                  <div className="pl-4 container-radio">
+                  <div className="pl-4 container-radio-2">
                     <input
                       ref={(e) => {
                         register(e);
@@ -652,7 +652,7 @@ export const AlteracaoCadastral = (parametros) => {
                     </label>
                   </div>
 
-                  <div className="pl-4 container-radio">
+                  <div className="pl-4 container-radio-2">
                     <input
                       ref={register({ required: true })}
                       onChange={(e) =>
@@ -759,8 +759,8 @@ export const AlteracaoCadastral = (parametros) => {
                   } `}</strong>
                 </label>
                 <input
-                  placeholder="Escreva aqui o nome completo da sua mãe"
-                  defaultValue={state.nm_mae_responsavel}
+                  placeholder={"Escreva aqui o nome completoda mãe de " + state.nm_responsavel}
+                  defaultValue={state.nome_mae}
                   type="text"
                   className="form-control"
                   name="nm_mae_responsavel"
