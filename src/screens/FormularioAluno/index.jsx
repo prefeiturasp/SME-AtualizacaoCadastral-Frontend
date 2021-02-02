@@ -69,46 +69,7 @@ export class FormularioAluno extends Component {
   }
 
   componentDidMount() {
-    const { codigoEol, dataNascimento, status } = this.props;
-    if (!status) {
-      getAluno(codigoEol)
-        .then((response) => {
-          if (response.status === HTTP_STATUS.OK) {
-            this.setState({ aluno: response.data, loading: false });
-            console.log(response)
-            this.setState({ showBotao: response.data.responsaveis[0].status === "DIVERGENTE" ? true : false});
-            this.loadAlunoHard(response.data);
-          } else {
-            toastError(response.data.detail);
-            this.setState({ loading: false });
-          }
-        })
-        .catch(() => {
-          this.setState({ loading: false, erroAPI: true });
-        });
-    } else {
-      getAlunoEOL({
-        codigo_eol: codigoEol,
-        data_nascimento: dataNascimento.slice(0, 10),
-      })
-        .then((response) => {
-          if (response.status === HTTP_STATUS.OK) {
-            this.setState({ aluno: response.data.detail, loading: false });
-            console.log(response)
-            this.setState({ showBotao: response.data.detail.responsaveis[0].status === "DIVERGENTE" ? true : false});
-            this.loadAlunoHard(response.data.detail);
-          } else {
-            toastError(response.data.detail);
-            this.setState({ loading: false });
-          }
-        })
-        .catch(() => {
-          this.setState({ loading: false, erroAPI: true });
-        });
-    }
-    getPalavrasBloqueadas().then((response) => {
-      this.setState({ palavrasBloqueadas: response.data });
-    });
+    this.funcaoInicial();
   }
 
   loadAlunoHard = (aluno) => {
@@ -213,6 +174,47 @@ export class FormularioAluno extends Component {
         }
       );
     }
+  }
+
+  funcaoInicial() {
+    const { codigoEol, dataNascimento, status } = this.props;
+    if (!status) {
+      getAluno(codigoEol)
+        .then((response) => {
+          if (response.status === HTTP_STATUS.OK) {
+            this.setState({ aluno: response.data, loading: false });
+            this.setState({ showBotao: response.data.responsaveis[0].status === "DIVERGENTE" ? true : false});
+            this.loadAlunoHard(response.data);
+          } else {
+            toastError(response.data.detail);
+            this.setState({ loading: false });
+          }
+        })
+        .catch(() => {
+          this.setState({ loading: false, erroAPI: true });
+        });
+    } else {
+      getAlunoEOL({
+        codigo_eol: codigoEol,
+        data_nascimento: dataNascimento.slice(0, 10),
+      })
+        .then((response) => {
+          if (response.status === HTTP_STATUS.OK) {
+            this.setState({ aluno: response.data.detail, loading: false });
+            this.setState({ showBotao: response.data.detail.responsaveis[0].status === "DIVERGENTE" ? true : false});
+            this.loadAlunoHard(response.data.detail);
+          } else {
+            toastError(response.data.detail);
+            this.setState({ loading: false });
+          }
+        })
+        .catch(() => {
+          this.setState({ loading: false, erroAPI: true });
+        });
+    }
+    getPalavrasBloqueadas().then((response) => {
+      this.setState({ palavrasBloqueadas: response.data });
+    });
   }
 
   submitAtualizadoPelaEscola(e) {
