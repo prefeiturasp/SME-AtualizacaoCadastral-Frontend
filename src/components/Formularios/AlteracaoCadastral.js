@@ -760,7 +760,7 @@ export const AlteracaoCadastral = (parametros) => {
                 </label>
                 <input
                   placeholder={"Escreva aqui o nome completoda mãe de " + state.nm_responsavel}
-                  defaultValue={state.nome_mae}
+                  defaultValue={state.nm_mae_responsavel}
                   type="text"
                   className="form-control"
                   name="nm_mae_responsavel"
