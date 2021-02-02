@@ -6,6 +6,7 @@ import {
   getAluno,
   updateAluno,
   getAlunoEOL,
+  atualizadoPelaEscola,
 } from "../../services/cadastroAluno.service";
 import { toastError, toastSuccess } from "../../components/Toast/dialogs";
 import Botao from "../../components/Botao";
@@ -45,6 +46,7 @@ export class FormularioAluno extends Component {
       enviado_para_mercado_pago: false,
       loading: true,
       erroAPI: false,
+      showBotao: false
     };
     this.onSubmit = this.onSubmit.bind(this);
   }
@@ -73,6 +75,8 @@ export class FormularioAluno extends Component {
         .then((response) => {
           if (response.status === HTTP_STATUS.OK) {
             this.setState({ aluno: response.data, loading: false });
+            console.log(response)
+            this.setState({ showBotao: response.data.responsaveis[0].status === "DIVERGENTE" ? true : false});
             this.loadAlunoHard(response.data);
           } else {
             toastError(response.data.detail);
@@ -90,6 +94,8 @@ export class FormularioAluno extends Component {
         .then((response) => {
           if (response.status === HTTP_STATUS.OK) {
             this.setState({ aluno: response.data.detail, loading: false });
+            console.log(response)
+            this.setState({ showBotao: response.data.detail.responsaveis[0].status === "DIVERGENTE" ? true : false});
             this.loadAlunoHard(response.data.detail);
           } else {
             toastError(response.data.detail);
@@ -209,6 +215,25 @@ export class FormularioAluno extends Component {
     }
   }
 
+  submitAtualizadoPelaEscola(e) {
+    const { aluno } = this.state;
+    let payload = {
+      codigo_eol: aluno.codigo_eol
+    }
+    atualizadoPelaEscola(payload).then(
+      (response) => {
+        console.log(response);
+        if (response.status === HTTP_STATUS.OK) {
+          this.setState({showBotao: false});
+          toastSuccess(response.data.detail);
+        } else {
+          toastError(getError(response.data));
+        }
+        
+      }
+    )
+  }
+
   render() {
     const { handleSubmit, inconsistencias } = this.props;
     const {
@@ -221,6 +246,7 @@ export class FormularioAluno extends Component {
       enviado_para_mercado_pago,
       loading,
       erroAPI,
+      showBotao,
     } = this.state;
     const nao_pode_editar =
       !inconsistencias &&
@@ -280,12 +306,16 @@ export class FormularioAluno extends Component {
                         Dados do responsável pelo estudante
                       </div>
                     </div>
-                    <div className="col-6 text-right">
-                      <ToggleSwitch
-                        onClick={() => this.setState({ editar: !editar })}
-                        texto="Editar informações"
-                      />
-                    </div>
+                    {
+                      aluno.responsaveis !== undefined && showBotao ?
+                      (<div className="col-6 text-right">
+                        <Botao
+                          style={BUTTON_STYLE.BLUE}
+                          onClick={(e) => this.submitAtualizadoPelaEscola(e)}
+                          texto="Divergência resolvida pela escola no EOL."
+                        />
+                      </div>) : null
+                    }
                   </div>
                   <div className={`${!editar ? "set-opacity" : undefined}`}>
                     <FormSection name="responsavel">

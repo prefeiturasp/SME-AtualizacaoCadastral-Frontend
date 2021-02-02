@@ -59,3 +59,24 @@ export const updateAluno = payload => {
       return error;
     });
 };
+
+
+export const atualizadoPelaEscola = payload => {
+  const url = `${API_URL}/alunos/atualizado-pela-escola/`;
+  let status = 0;
+  return fetch(url, {
+    method: "POST",
+    headers: AUTH_TOKEN,
+    body: JSON.stringify(payload)
+  })
+    .then(res => {
+      status = res.status;
+      return res.json();
+    })
+    .then(data => {
+      return { data: data, status: status };
+    })
+    .catch(error => {
+      return error;
+    });
+};
