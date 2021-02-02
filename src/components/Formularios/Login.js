@@ -258,11 +258,11 @@ export const Login = () => {
                             />
                             {sparErro ? "Digite uma data Válida" : null}
                         </div>
-                        <div className="col-lg-4 mt-4 mt-md-5 pl-5 pr-5 pl-md-0 pr-md-0" >
+                        <div className="col-lg-4 mt-4 pl-5 pr-5 pl-md-0 pr-md-0" >
                             <BtnCustomizado
                                 disable={handleBtnAAbrirFormularioDisable()}
                                 type="submit"
-                                classeCss="btn btn-outline-primary btn-block btn-abrir-formulario mt-2"
+                                classeCss="btn btn-outline-primary btn-block btn-abrir-formulario mt-4"
                                 texto="Abrir formulário"
                             />
                         </div>
