@@ -404,12 +404,6 @@ export const AlteracaoCadastral = (parametros) => {
                     <label htmlFor="email_responsavel">
                       <strong>E-mail do responsável*</strong>
                     </label>
-
-                    <div className="row">
-                      <div className="col-12">
-                        <div className="form-check form-check-inline"></div>
-                      </div>
-                    </div>
                     <input
                       placeholder={
                         !state.nao_possui_email ? "Digite um email válido" : ""
