@@ -209,6 +209,18 @@ export class FormularioAluno extends Component {
     }
   }
 
+  mostraMensagem(aluno) {
+    if (aluno.responsaveis) {
+      let status_responsavel = aluno.responsaveis[0].status
+      let status_validados = ["ATUALIZADO_VALIDO", "ATUALIZADO_EOL", "PENDENCIA_RESOLVIDA", "INCONSISTENCIA_RESOLVIDA"]
+      return (
+        status_responsavel === "DIVERGENTE" ? 
+          "Dados divergentes da/o responsável informados pela família no formulário online." : (
+            status_validados.includes(status_responsavel) ? "Dados do(a) responsável já estão completos no EOL." : "Responsável ainda precisa realizar a atualização cadastral.")
+      )
+    }
+  }
+
   render() {
     const { handleSubmit, inconsistencias } = this.props;
     const {
@@ -242,6 +254,11 @@ export class FormularioAluno extends Component {
             {!loading && aluno && (
               <Fragment>
                 <form formKey={2} onSubmit={handleSubmit(this.onSubmit)}>
+                  <div className="row mb-3">
+                    <div className="col-12">
+                      {aluno.responsaveis !== undefined ? this.mostraMensagem(aluno): null}
+                    </div>
+                  </div>
                   <div className="row pb-3">
                     <div className="col-6">
                       <div className="card-title">
