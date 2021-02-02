@@ -212,12 +212,22 @@ export class FormularioAluno extends Component {
   mostraMensagem(aluno) {
     if (aluno.responsaveis) {
       let status_responsavel = aluno.responsaveis[0].status
-      let status_validados = ["ATUALIZADO_VALIDO", "ATUALIZADO_EOL", "PENDENCIA_RESOLVIDA", "INCONSISTENCIA_RESOLVIDA"]
       return (
         status_responsavel === "DIVERGENTE" ? 
           "Dados divergentes da/o responsável informados pela família no formulário online." : (
-            status_validados.includes(status_responsavel) ? "Dados do(a) responsável já estão completos no EOL." : "Responsável ainda precisa realizar a atualização cadastral.")
+            status_responsavel === "ATUALIZADO_EOL" ? "Dados do(a) responsável já estão completos no EOL." : "Responsável ainda precisa realizar a atualização cadastral.")
       )
+    }
+  }
+
+  getColor(aluno) {
+    if (aluno.responsaveis) {
+      let status_responsavel = aluno.responsaveis[0].status
+      if(status_responsavel === "ATUALIZADO_EOL" ) {
+        return "green"
+      } else {
+        return "orange"
+      }
     }
   }
 
@@ -256,7 +266,10 @@ export class FormularioAluno extends Component {
                 <form formKey={2} onSubmit={handleSubmit(this.onSubmit)}>
                   <div className="row mb-3">
                     <div className="col-12">
-                      {aluno.responsaveis !== undefined ? this.mostraMensagem(aluno): null}
+                    <span
+                        style={{backgroundColor: this.getColor(aluno)}}
+                      >{aluno.responsaveis !== undefined ? this.mostraMensagem(aluno): null}
+                      </span>
                     </div>
                   </div>
                   <div className="row pb-3">
