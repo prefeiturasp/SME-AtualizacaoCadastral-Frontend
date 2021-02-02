@@ -209,6 +209,28 @@ export class FormularioAluno extends Component {
     }
   }
 
+  mostraMensagem(aluno) {
+    if (aluno.responsaveis) {
+      let status_responsavel = aluno.responsaveis[0].status
+      return (
+        status_responsavel === "DIVERGENTE" ? 
+          "Dados divergentes da/o responsável informados pela família no formulário online." : (
+            status_responsavel === "ATUALIZADO_EOL" ? "Dados do(a) responsável já estão completos no EOL." : "Responsável ainda precisa realizar a atualização cadastral.")
+      )
+    }
+  }
+
+  getColor(aluno) {
+    if (aluno.responsaveis) {
+      let status_responsavel = aluno.responsaveis[0].status
+      if(status_responsavel === "ATUALIZADO_EOL" ) {
+        return "green"
+      } else {
+        return "orange"
+      }
+    }
+  }
+
   render() {
     const { handleSubmit, inconsistencias } = this.props;
     const {
@@ -242,6 +264,14 @@ export class FormularioAluno extends Component {
             {!loading && aluno && (
               <Fragment>
                 <form formKey={2} onSubmit={handleSubmit(this.onSubmit)}>
+                  <div className="row mb-3">
+                    <div className="col-12">
+                    <span
+                        style={{backgroundColor: this.getColor(aluno)}}
+                      >{aluno.responsaveis !== undefined ? this.mostraMensagem(aluno): null}
+                      </span>
+                    </div>
+                  </div>
                   <div className="row pb-3">
                     <div className="col-6">
                       <div className="card-title">
@@ -279,12 +309,6 @@ export class FormularioAluno extends Component {
                         <i className="fas fa-file-alt" />
                         Dados do responsável pelo estudante
                       </div>
-                    </div>
-                    <div className="col-6 text-right">
-                      <ToggleSwitch
-                        onClick={() => this.setState({ editar: !editar })}
-                        texto="Editar informações"
-                      />
                     </div>
                   </div>
                   <div className={`${!editar ? "set-opacity" : undefined}`}>
