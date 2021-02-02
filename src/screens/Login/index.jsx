@@ -352,8 +352,8 @@ export class Login extends Component {
               <img
                 src={
                   process.env.PUBLIC_URL
-                    ? `/${process.env.PUBLIC_URL}/assets/images/logo-pgscue-com-texto.png`
-                    : "/assets/images/logo-pgscue-com-texto.png"
+                    ? `/${process.env.PUBLIC_URL}/assets/images/logo-atualizacao-cadastral.svg`
+                    : "/assets/images/logo-atualizacao-cadastral.svg"
                 }
                 alt=""
               />
