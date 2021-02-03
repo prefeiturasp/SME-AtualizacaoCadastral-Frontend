@@ -76,7 +76,7 @@ export const YupSignupSchemaCadastro = () => {
                     return validarCPF(value)
                 }),
 
-            nome_mae: yup.string().required("Nome da mãe do responsável é obrigatório")
+            nm_mae_responsavel: yup.string().required("Nome da mãe do responsável é obrigatório")
             .max(70, "Nome da mãe do responsável deve conter no máximo 70 caracteres")
             .matches(/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ\s]+$/, {
                 message: 'Não são permitidos números ou caracteres especiais',
