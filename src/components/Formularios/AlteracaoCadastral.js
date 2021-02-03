@@ -220,7 +220,7 @@ export const AlteracaoCadastral = (parametros) => {
 
     let payload_atualizado = {
       codigo_eol: String(inputCodigoEol),
-      dt_nascimento_responsavel: inputDtNascAluno,
+      data_nascimento: inputDtNascAluno,
       responsavel: data,
     };
     atualizaCadastro(payload_atualizado)
@@ -228,12 +228,12 @@ export const AlteracaoCadastral = (parametros) => {
         if (retorno_api.status === HTTP_STATUS.CREATED) {
           codigoEolRef.current.focus();
           mensagem.setAbrirModal(true);
-          mensagem.setTituloModal("Obrigado por solicitar o uniforme escolar");
+          mensagem.setTituloModal("Obrigado por atualizar o seu cadastro");
           mensagem.setMsg(
-            "<p>O seu pedido do uniforme escolar já foi registrado. Nos próximos dias você receberá no e-mail cadastrado orientações sobre os próximos passos para realizar a compra nas lojas credenciadas</p>" +
-              "<p>Acompanhe também as novidades sobre o novo processo de compra descentralizada pelas famílias diretamente no Portal do Uniforme: <a title='Link externo para o portal do uniforme' href='https://educacao.sme.prefeitura.sp.gov.br/portaldouniforme'>educacao.sme.prefeitura.sp.gov.br/portaldouniforme</a> </p>" +
+            "<p>Cara(o) responsável, </p>" +
+              "<p>Obrigada por fazer a atualização de seu cadastro na Secretaria Municipal de Educação.</p>" +
               "<p>Atenciosamente,</p>" +
-              "<p>Secretaria Municipal de Educação</p>"
+              "<p>Secretaria Municipal de Educação <br/> Prefeitura de São Paulo</p>"
           );
 
           setCollapse("");
