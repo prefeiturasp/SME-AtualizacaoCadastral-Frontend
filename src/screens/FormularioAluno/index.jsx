@@ -295,7 +295,7 @@ export class FormularioAluno extends Component {
                   <div className="row mb-3">
                     <div className="col-12">
                     <span
-                        style={{backgroundColor: this.getColor(aluno)}}
+                        style={{backgroundColor: this.getColor(aluno), fontWeight: 'bold', padding: '6px'}}
                       >{aluno.responsaveis !== undefined ? this.mostraMensagem(aluno): null}
                       </span>
                     </div>
