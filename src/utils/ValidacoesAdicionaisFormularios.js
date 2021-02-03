@@ -31,29 +31,19 @@ export const YupSignupSchemaCadastro = () => {
 
             nao_possui_email: yup.boolean(),
 
-            email_responsavel: yup
-            .string()
-            .when("nao_possui_email", {
-                is: false,
-                then: yup.string().required("E-mail do responsável é obrigatório").email("Digite um email válido")
-                .test('test-name', 'Esse não parece ser um e-mail válido. Tente novamente',
-                    function (value) {
-                        return !validarDominioEmail(value)
-                    }),
-            }),
+            email_responsavel: yup.string().required("E-mail do responsável é obrigatório").email("Digite um email válido")
+            .test('test-name', 'Esse não parece ser um e-mail válido. Tente novamente',
+                function (value) {
+                    return !validarDominioEmail(value)
+                }),
 
-            email_responsavel_confirm: yup
-            .string()
-            .when("nao_possui_email", {
-                is: false,
-                then: yup.string().required("Confirmação do e-mail é obrigatória").email("Digite um email válido")
-                .test('test-name', 'E-mail diferente',
-                    function (value) {
-                        const { email_responsavel } = this.parent;
-                        return !validarStringsIguais(email_responsavel, value)
-                    }),
-            }),
-
+            email_responsavel_confirm: yup.string().required("Confirmação do e-mail é obrigatória").email("Digite um email válido")
+            .test('test-name', 'E-mail diferente',
+                function (value) {
+                    const { email_responsavel } = this.parent;
+                    return !validarStringsIguais(email_responsavel, value)
+                }),
+                
             nao_possui_celular: yup.boolean(),
 
             cd_ddd_celular_responsavel: yup
@@ -86,7 +76,7 @@ export const YupSignupSchemaCadastro = () => {
                     return validarCPF(value)
                 }),
 
-            nome_mae: yup.string().required("Nome da mãe do responsável é obrigatório")
+            nm_mae_responsavel: yup.string().required("Nome da mãe do responsável é obrigatório")
             .max(70, "Nome da mãe do responsável deve conter no máximo 70 caracteres")
             .matches(/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ\s]+$/, {
                 message: 'Não são permitidos números ou caracteres especiais',

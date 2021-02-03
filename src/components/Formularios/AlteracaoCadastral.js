@@ -56,8 +56,8 @@ export const AlteracaoCadastral = (parametros) => {
     nr_celular_responsavel: "",
     email_responsavel: "",
     tp_pessoa_responsavel: "",
-    nome_mae: "",
-    data_nascimento: "",
+    nm_mae_responsavel: "",
+    dt_nascimento_responsavel: "",
     nao_possui_celular: false,
     nao_possui_email: false,
     email_responsavel_confirm: "",
@@ -66,11 +66,11 @@ export const AlteracaoCadastral = (parametros) => {
   });
 
   useEffect(() => {
-    let dataApi = retorno_api.detail.responsaveis[0].data_nascimento;
+    let dataApi = retorno_api.detail.responsaveis[0].dt_nascimento_responsavel;
     let diaCorreto = null;
 
     if (dataApi) {
-      diaCorreto = new Date(retorno_api.detail.responsaveis[0].data_nascimento);
+      diaCorreto = new Date(retorno_api.detail.responsaveis[0].dt_nascimento_responsavel);
       diaCorreto.setDate(diaCorreto.getDate() + 1);
     } else {
       diaCorreto = null;
@@ -119,8 +119,8 @@ export const AlteracaoCadastral = (parametros) => {
             parseInt(retorno_api.detail.responsaveis[0].tp_pessoa_responsavel)
           )
         : "",
-      nome_mae: retorno_api.detail.responsaveis[0].nome_mae
-        ? retorno_api.detail.responsaveis[0].nome_mae.trimEnd().trimStart()
+      nm_mae_responsavel: retorno_api.detail.responsaveis[0].nm_mae_responsavel
+        ? retorno_api.detail.responsaveis[0].nm_mae_responsavel.trimEnd().trimStart()
         : "",
       nao_possui_celular: retorno_api.detail.responsaveis[0].nao_possui_celular
         ? retorno_api.detail.responsaveis[0].nao_possui_celular
@@ -201,22 +201,17 @@ export const AlteracaoCadastral = (parametros) => {
       );
     }
 
-    if (data.nao_possui_email) {
-      data.email_responsavel = null;
-    } else {
-      data.email_responsavel = data.email_responsavel.trimEnd().trimStart();
-    }
-
+    data.email_responsavel = data.email_responsavel.trimEnd().trimStart();
     data.cd_cpf_responsavel = data.cd_cpf_responsavel.replace(/-/g, "");
     data.cd_cpf_responsavel = data.cd_cpf_responsavel.replace(/\./g, "");
     data.codigo_eol_aluno = String(inputCodigoEol);
     data.nm_responsavel = data.nm_responsavel.trimEnd().trimStart();
-    data.nome_mae = data.nome_mae.trimEnd().trimStart();
-    data.data_nascimento = validarDtNascEstudante(dtNascResponsavel);
+    data.nm_mae_responsavel = data.nm_mae_responsavel.trimEnd().trimStart();
+    data.dt_nascimento_responsavel = validarDtNascEstudante(dtNascResponsavel);
 
     if (
-      data.data_nascimento === undefined ||
-      data.data_nascimento === "Invalid date"
+      data.dt_nascimento_responsavel === undefined ||
+      data.dt_nascimento_responsavel === "Invalid date"
     ) {
       setSpanErro(true);
       setLoading(false);
@@ -225,7 +220,7 @@ export const AlteracaoCadastral = (parametros) => {
 
     let payload_atualizado = {
       codigo_eol: String(inputCodigoEol),
-      data_nascimento: inputDtNascAluno,
+      dt_nascimento_responsavel: inputDtNascAluno,
       responsavel: data,
     };
     atualizaCadastro(payload_atualizado)
@@ -339,8 +334,8 @@ export const AlteracaoCadastral = (parametros) => {
       nr_celular_responsavel: "",
       email_responsavel: "",
       tp_pessoa_responsavel: "",
-      nome_mae: "",
-      data_nascimento: "",
+      nm_mae_responsavel: "",
+      dt_nascimento_responsavel: "",
       codigo_escola: "",
       codigo_dre: "",
       nao_possui_celular: false,
@@ -360,7 +355,7 @@ export const AlteracaoCadastral = (parametros) => {
         onSubmit={handleSubmit(onSubmitAtualizacaoCadastral)}
       />
       <div className={`collapse ${collapse}  pt-5`} id="">
-        <h2 className="text-white mb-4">Solicitação de uniforme escolar.</h2>
+        <h2 className="text-white mb-4">Atualização cadastral.</h2>
         <div className="container-form-dados-responsável p-4 ">
           <p className="mb-4">
             <strong>
@@ -409,36 +404,6 @@ export const AlteracaoCadastral = (parametros) => {
                     <label htmlFor="email_responsavel">
                       <strong>E-mail do responsável*</strong>
                     </label>
-
-                    <div className="row">
-                      <div className="col-12">
-                        <div className="form-check form-check-inline">
-                          <input
-                            className="form-check-input"
-                            type="checkbox"
-                            name="nao_possui_email"
-                            id="nao_possui_email"
-                            ref={(e) => {
-                              register(e);
-                            }}
-                            checked={state.nao_possui_email}
-                            onChange={(e) =>
-                              handleChangeAtualizacaoCadastral(
-                                e.target.name,
-                                e.target.checked
-                              )
-                            }
-                          />
-                          <label
-                            className="form-check-label"
-                            htmlFor="nao_possui_email"
-                          >
-                            Não possuo e-mail
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-
                     <input
                       placeholder={
                         !state.nao_possui_email ? "Digite um email válido" : ""
@@ -616,7 +581,7 @@ export const AlteracaoCadastral = (parametros) => {
                   <strong>Vínculo com o(a) estudante*</strong>
                 </label>
                 <div className="d-flex flex-wrap justify-content-between">
-                  <div className="pl-4 container-radio">
+                  <div className="pl-4 container-radio-2">
                     <input
                       ref={(e) => {
                         register(e);
@@ -639,7 +604,7 @@ export const AlteracaoCadastral = (parametros) => {
                     </label>
                   </div>
 
-                  <div className="pl-4 container-radio">
+                  <div className="pl-4 container-radio-2">
                     <input
                       ref={(e) => {
                         register(e);
@@ -661,7 +626,7 @@ export const AlteracaoCadastral = (parametros) => {
                       <strong>Pai</strong>
                     </label>
                   </div>
-                  <div className="pl-4 container-radio">
+                  <div className="pl-4 container-radio-2">
                     <input
                       ref={(e) => {
                         register(e);
@@ -687,7 +652,7 @@ export const AlteracaoCadastral = (parametros) => {
                     </label>
                   </div>
 
-                  <div className="pl-4 container-radio">
+                  <div className="pl-4 container-radio-2">
                     <input
                       ref={register({ required: true })}
                       onChange={(e) =>
@@ -755,7 +720,7 @@ export const AlteracaoCadastral = (parametros) => {
                         )}
                       </div>
                       <div className="col-12 col-md-6 mt-5 mt-md-0">
-                        <label htmlFor="data_nascimento">
+                        <label htmlFor="dt_nascimento_responsavel">
                           <strong>Data de nascimento do responsável*</strong>
                         </label>
                         <DatePicker
@@ -786,7 +751,7 @@ export const AlteracaoCadastral = (parametros) => {
                 </div>
               </div>
               <div className="col-12 mt-5">
-                <label htmlFor="nome_mae">
+                <label htmlFor="nm_mae_responsavel">
                   <strong>{` ${
                     state.nm_responsavel
                       ? "Nome da mãe de " + state.nm_responsavel
@@ -794,19 +759,19 @@ export const AlteracaoCadastral = (parametros) => {
                   } `}</strong>
                 </label>
                 <input
-                  placeholder="Escreva aqui o nome completo da sua mãe"
-                  defaultValue={state.nome_mae}
+                  placeholder={"Escreva aqui o nome completoda mãe de " + state.nm_responsavel}
+                  defaultValue={state.nm_mae_responsavel}
                   type="text"
                   className="form-control"
-                  name="nome_mae"
-                  id="nome_mae"
+                  name="nm_mae_responsavel"
+                  id="nm_mae_responsavel"
                   ref={(e) => {
                     register(e);
                   }}
                 />
-                {errors.nome_mae && (
+                {errors.nm_mae_responsavel && (
                   <span className="text-danger mt-1">
-                    {errors.nome_mae.message}
+                    {errors.nm_mae_responsavel.message}
                   </span>
                 )}
               </div>
@@ -853,7 +818,7 @@ export const AlteracaoCadastral = (parametros) => {
                   disable={handleBtnSolicitarUniforme()}
                   type="submit"
                   classeCss="btn btn-primary"
-                  texto="Solicitar uniforme"
+                  texto="Atualizar Informações"
                 />
               </div>
             </div>
