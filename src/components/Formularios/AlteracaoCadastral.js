@@ -220,7 +220,7 @@ export const AlteracaoCadastral = (parametros) => {
 
     let payload_atualizado = {
       codigo_eol: String(inputCodigoEol),
-      dt_nascimento_responsavel: inputDtNascAluno,
+      data_nascimento: inputDtNascAluno,
       responsavel: data,
     };
     atualizaCadastro(payload_atualizado)
