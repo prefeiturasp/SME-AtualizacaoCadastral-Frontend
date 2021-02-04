@@ -256,7 +256,7 @@ export const AlteracaoCadastral = (parametros) => {
           ) {
             codigoEolRef.current.focus();
             mensagem.setAbrirModal(true);
-            mensagem.setTituloModal("Erro ao solicitar uniforme");
+            mensagem.setTituloModal("Erro ao atualizar cadastro");
             mensagem.setMsg(
               "Essa solicitação está em processo de solução de inconsistência. No momento não é possivel realizar alterações."
             );
@@ -270,7 +270,7 @@ export const AlteracaoCadastral = (parametros) => {
           ) {
             codigoEolRef.current.focus();
             mensagem.setAbrirModal(true);
-            mensagem.setTituloModal("Erro ao solicitar uniforme");
+            mensagem.setTituloModal("Erro ao atualizar cadastro");
             mensagem.setMsg(
               "Essa solicitação já foi finalizada e enviada para o Mercado Pago. No momento não é possivel realizar alterações."
             );
@@ -285,9 +285,9 @@ export const AlteracaoCadastral = (parametros) => {
           ) {
             codigoEolRef.current.focus();
             mensagem.setAbrirModal(true);
-            mensagem.setTituloModal("Erro ao solicitar uniforme");
+            mensagem.setTituloModal("Erro ao atualizar cadastro");
             mensagem.setMsg(
-              "Essa solicitação já foi finalizada pela escola. Caso necessite realizar alguma alteração, dirija-se a escola do aluno."
+              "Esse cadastro já foi atualizado. Caso necessite realizar alguma alteração, dirija-se a escola do aluno."
             );
             setCollapse("");
             setBtnDisable(false);
@@ -297,7 +297,7 @@ export const AlteracaoCadastral = (parametros) => {
           } else if (retorno_api.data[0] === "EOL Timeout") {
             codigoEolRef.current.focus();
             mensagem.setAbrirModal(true);
-            mensagem.setTituloModal("Erro ao solicitar uniforme");
+            mensagem.setTituloModal("Erro ao atualizar cadastro");
             mensagem.setMsg(
               "Tente novamente inserir o código EOL e a data de nascimento"
             );
@@ -313,8 +313,8 @@ export const AlteracaoCadastral = (parametros) => {
         // Caso erro seta o focus no nome do responsável
         nmResponsavelRef.current.focus();
         mensagem.setAbrirModal(true);
-        mensagem.setTituloModal("Erro ao solicitar uniforme");
-        mensagem.setMsg("Erro ao solicitar uniforme. Tente novamente");
+        mensagem.setTituloModal("Erro ao atualizar cadastro");
+        mensagem.setMsg("Erro ao atualizar cadastro. Tente novamente");
         console.log(error.message);
         setCollapse("show");
         setBtnDisable(true);
