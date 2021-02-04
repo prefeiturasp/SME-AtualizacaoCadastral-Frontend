@@ -344,7 +344,7 @@ export class FormularioAluno extends Component {
                         <Botao
                           style={BUTTON_STYLE.BLUE}
                           onClick={(e) => this.submitAtualizadoPelaEscola(e)}
-                          texto="Divergência resolvida pela escola no EOL."
+                          texto="Clique aqui se a divergência já foi resolvida no EOL."
                         />
                       </div>) : null
                     }
