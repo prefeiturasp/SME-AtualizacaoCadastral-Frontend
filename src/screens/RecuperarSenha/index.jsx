@@ -30,7 +30,7 @@ class RecuperarSenhaPage extends Component {
         this.props.reset();
         toastSuccess("Senha atualizada com sucesso!");
         setTimeout(function() {
-          window.location.href = "/";
+          window.location.href = "/adm-escola";
         }, 1000);
       } else {
         this.setState({ mensagem: response.data.detail });
