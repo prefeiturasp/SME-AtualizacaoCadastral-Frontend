@@ -150,10 +150,10 @@ export class Login extends Component {
     return (
       <div className="message-signup-success pt-3 pb-3">
         Dados salvos com sucesso. Para ativar seu usuário no ambiente
-        administrativo do Portal do Uniforme, acesse a caixa postal do seu
+        administrativo do atualização cadastral, acesse a caixa postal do seu
         e-mail cadastrado <span className="font-weight-bold">{email}</span>,
         entre na mensagem intitulada "Confirme seu e-mail - Ambiente
-        administrativo do Portal do Uniforme" e clique no link indicado nela.
+        administrativo do atualização cadastral" e clique no link indicado nela.
         <div className="row">
           <div className="col-12 text-center">
             <Botao
