@@ -39,7 +39,7 @@ const Routes = () => (
         );
       })}
       <Route path="/confirmar-email" component={ConfirmarEmail} />
-      <Route path="/recuperar-senha" component={RecuperarSenha} />
+      <Route path={`/${path_adm}/recuperar-senha`} component={RecuperarSenha} />
       <Route path="*" component={NotFoundPage} />
     </Switch>
   </BrowserRouter>
