@@ -27,7 +27,6 @@ const PrivateRouter = (
 );
 
 const Routes = () => (
-  <BrowserRouter >
     <Switch>
       {public_routes.map((value, key) => {
           return (
@@ -51,7 +50,6 @@ const Routes = () => (
       })}
       <Route path="*" component={NotFoundPage} />
     </Switch>
-  </BrowserRouter>
 );
 
 export default Routes;
