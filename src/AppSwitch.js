@@ -24,9 +24,9 @@ toast.configure();
 export const UniformeProvider = ({store}) => {
     return (
         <Provider store={store}>
-          <Router>
+          <BrowserRouter>
             <App />
-          </Router>
+          </BrowserRouter>
         </Provider>
     )
 }
