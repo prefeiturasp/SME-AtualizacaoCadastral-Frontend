@@ -89,6 +89,7 @@ export class Login extends Component {
     const { bloquearBotao } = this.state;
     return (
       <div className="form">
+        {console.log("Login")}
         <form className="login" onSubmit={handleSubmit(this.handleSubmit)}>
           <Field
             component={InputText}

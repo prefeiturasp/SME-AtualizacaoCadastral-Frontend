@@ -5,9 +5,9 @@ import {Pagina404} from "../../pages/404";
 
 export const Rotas = () => {
     return(
-        <Switch>
+        <>
             <Route path="/" exact component={Home}/>
             <Route path="*" component={Pagina404}/>
-        </Switch>
+        </>
     )
 }

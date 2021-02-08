@@ -1,6 +1,9 @@
 import PainelGerencialPage from "../pages/PainelGerencialPage";
 import ListaAlunosPage from "../pages/ListaAlunosPage";
 import ResponsaveisComInconsistenciaPage from "../pages/ResponsaveisComInconsistenciaPage";
+import RecuperarSenha from "../screens/RecuperarSenha";
+import ConfirmarEmail from "../screens/ConfirmarEmail";
+import Login from "../screens/Login";
 
 export const path_adm = 'adm-escola';
 
@@ -21,3 +24,22 @@ export const routes = [
     exact: true,
   },
 ];
+
+
+export const public_routes = [
+  {
+    path: `/${path_adm}/confirmar-email`,
+    component: ConfirmarEmail,
+    exact: false,
+  },
+  {
+    path: `/${path_adm}/recuperar-senha`,
+    component: RecuperarSenha,
+    exact: false,
+  },
+  {
+    path: `/${path_adm}/login`,
+    component: Login,
+    exact: true,
+  },
+]
