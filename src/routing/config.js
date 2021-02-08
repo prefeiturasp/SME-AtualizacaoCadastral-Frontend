@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
+import { Redirect, Route } from "react-router-dom";
 import { routes, path_adm, public_routes } from "./routes";
 import NotFoundPage from "../screens/404";
 import authService from "../services/auth.service";
