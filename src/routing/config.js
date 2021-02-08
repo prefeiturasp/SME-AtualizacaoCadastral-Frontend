@@ -27,6 +27,8 @@ const PrivateRouter = (
 const Routes = () => (
   <BrowserRouter >
     <Switch>
+      <Route path={`/${path_adm}/confirmar-email`} component={ConfirmarEmail} />
+      <Route path={`/${path_adm}/recuperar-senha`} component={RecuperarSenha} />
       <Route path={`/${path_adm}/login`} component={Login} />
       {routes.map((value, key) => {
         return (
@@ -38,8 +40,6 @@ const Routes = () => (
           />
         );
       })}
-      <Route path={`/${path_adm}/confirmar-email`} component={ConfirmarEmail} />
-      <Route path={`/${path_adm}/recuperar-senha`} component={RecuperarSenha} />
       <Route path="*" component={NotFoundPage} />
     </Switch>
   </BrowserRouter>
