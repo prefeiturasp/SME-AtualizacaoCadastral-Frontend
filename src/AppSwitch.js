@@ -5,7 +5,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import {BrowserRouter, Route, Redirect, Switch} from 'react-router-dom'
 import { Provider } from "react-redux";
-import { BrowserRouter as Router } from "react-router-dom";
 
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -13,11 +12,9 @@ import "react-app-polyfill/ie11";
 import "react-app-polyfill/stable";
 import App from "./App";
 import AppCadastro from "./AppCadastro";
-import { path } from "d3-path";
 
 import { NotificacaoContextProvider } from "./context/NotificacaoContext";
 import { PalavroesContextProvider } from "./context/PalavroesContext";
-import Login from "./screens/Login";
 import { routes, path_adm, public_routes } from "./routing/routes";
 import authService from "./services/auth.service";
 
@@ -49,47 +46,45 @@ const PrivateRouter = (
 export const CadastroProvider = ({store}) => {
     return (
       <Provider store={store}>
-      <BrowserRouter>
-      <Switch>
-        {public_routes.map((value, key) => {
-          return (
-              <PublicRouter 
-              key={key}
-              path={value.path}
-              exact={value.exact}
-              component={value.component}
-              />
-            )
-          })}
-          {routes.map((value, key) => {
-          return (
-            <PrivateRouter
+        <BrowserRouter>
+          <Switch>
+            {public_routes.map((value, key) => {
+              return (
+                  <PublicRouter 
                   key={key}
                   path={value.path}
                   exact={value.exact}
                   component={value.component}
-                />
-              );
-            })}
-        <NotificacaoContextProvider>
-        <PalavroesContextProvider>
-            <AppCadastro />
-        </PalavroesContextProvider>
-      </NotificacaoContextProvider>
-      <App />
-      </Switch>
-      </BrowserRouter>
+                  />
+                )
+              })}
+              {routes.map((value, key) => {
+              return (
+                <PrivateRouter
+                      key={key}
+                      path={value.path}
+                      exact={value.exact}
+                      component={value.component}
+                    />
+                  );
+                })}
+            <NotificacaoContextProvider>
+            <PalavroesContextProvider>
+                <AppCadastro />
+            </PalavroesContextProvider>
+            </NotificacaoContextProvider>
+            <App />
+          </Switch>
+        </BrowserRouter>
       </Provider>
     )
 }
 
 
 export const AppSwitch = ({store}) => {
-    const pathName = window.location.pathname;
     return (
             <>  
-                <CadastroProvider store={store}/>
-               
+              <CadastroProvider store={store}/>
             </> 
     )
 };
