@@ -86,32 +86,26 @@ Completar as lacunas nos cadastros dos responsáveis pelos estudantes no Sistema
 <tr>
 <td>Agente de Governança</td>
 <td>Fernando Gonsales</td>
-<td></td>
 </tr>
 <tr>
 <td>Gerente de Projeto</td>
 <td>Andrea Paiva </td>
-<td>-</td>
 </tr>
 <tr>
 <td>Scrum Master</td>
 <td>Augusto César de  Brito Silva</td>
-<td>-</td>
 </tr>
 <tr>
 <td>Analista Programador</td>
 <td>Kelwy Guedes de Oliveira</td>
-<td>-</td>
 </tr>
 <tr>
 <td>Analista Programador</td>
 <td>Anderson M. Morais</td>
-<td>-</td>
 </tr>
 <tr>
 <td>Analista de testes</td>
 <td>Paula Pimentel</td>
-<td>-</td>
 </tr>
 </tbody>
 </table>
