@@ -71,7 +71,7 @@ export const AlteracaoCadastral = (parametros) => {
 
     if (dataApi) {
       diaCorreto = new Date(retorno_api.detail.responsaveis[0].dt_nascimento_responsavel);
-      diaCorreto.setDate(diaCorreto.getDate() + 1);
+      diaCorreto.setDate(diaCorreto.getDate());
     } else {
       diaCorreto = null;
     }
@@ -147,7 +147,9 @@ export const AlteracaoCadastral = (parametros) => {
     if (name === 'tp_pessoa_responsavel' && value === '4') {
       setDtNascResponsavel(new Date(moment(inputDtNascAluno)));
       setSpanErro(false);
-    } 
+    } else if (name === 'tp_pessoa_responsavel') {
+      setDtNascResponsavel(null);
+    }
   };
   
   const handleChangeDtNascResponsavel = (date) => {
