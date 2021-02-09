@@ -60,7 +60,7 @@ Completar as lacunas nos cadastros dos responsáveis pelos estudantes no Sistema
 
 ## Roadmap 
 
-**Release 1:** 
+- **Release 1:** 
 
 -Landing page e formulário de atualização cadastral (exclusivo para público que recebe uniforme escolar).  
 
@@ -76,14 +76,12 @@ Completar as lacunas nos cadastros dos responsáveis pelos estudantes no Sistema
 <tr>
 <th>Papel</th>
 <th>Titular</th>
-<th>Suplente</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Product Owner</td>
 <td>Thaís Brianezi </td>
-<td></td>
 </tr>
 <tr>
 <td>Agente de Governança</td>
