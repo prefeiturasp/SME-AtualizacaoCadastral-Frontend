@@ -17,6 +17,7 @@ import { NotificacaoContextProvider } from "./context/NotificacaoContext";
 import { PalavroesContextProvider } from "./context/PalavroesContext";
 import { routes, path_adm, public_routes } from "./routing/routes";
 import authService from "./services/auth.service";
+import {Pagina404} from "./pages/404";
 
 toast.configure();
 
@@ -73,7 +74,7 @@ export const CadastroProvider = ({store}) => {
                 <AppCadastro />
             </PalavroesContextProvider>
             </NotificacaoContextProvider>
-            <App />
+            <Route path="*" component={Pagina404}/>
           </Switch>
         </BrowserRouter>
       </Provider>
