@@ -217,10 +217,11 @@ export const AlteracaoCadastral = (parametros) => {
     data.nm_mae_responsavel = data.nm_mae_responsavel.trimEnd().trimStart();
     data.dt_nascimento_responsavel = validarDtNascEstudante(dtNascResponsavel);
 
+
+
     if (
       data.dt_nascimento_responsavel === undefined ||
-      data.dt_nascimento_responsavel === "Invalid date" ||
-      (data.tp_pessoa_responsavel !== 4 && !validarDtNascResponsavel(dtNascResponsavel, inputDtNascAluno))
+      data.dt_nascimento_responsavel === "Invalid date"
     ) {
       setSpanErro(true);
       setLoading(false);
