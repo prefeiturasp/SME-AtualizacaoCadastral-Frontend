@@ -7,7 +7,6 @@ export const Rotas = () => {
     return(
         <>
             <Route path="/" exact component={Home}/>
-            <Route path="*" component={Pagina404}/>
         </>
     )
 }
