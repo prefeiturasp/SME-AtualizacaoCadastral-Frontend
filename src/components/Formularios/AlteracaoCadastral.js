@@ -143,7 +143,15 @@ export const AlteracaoCadastral = (parametros) => {
       ...state,
       [name]: value,
     });
+
+    if (name === 'tp_pessoa_responsavel' && value === '4') {
+      setDtNascResponsavel(new Date(moment(inputDtNascAluno)));
+      setSpanErro(false);
+    } else if (name === 'tp_pessoa_responsavel') {
+      setDtNascResponsavel(null);
+    }
   };
+  
   const handleChangeDtNascResponsavel = (date) => {
     setDtNascResponsavel(date);
   };
@@ -725,6 +733,7 @@ export const AlteracaoCadastral = (parametros) => {
                         </label>
                         <DatePicker
                           placeholder="Somente números"
+                          disabled={state.tp_pessoa_responsavel && state.tp_pessoa_responsavel === '4'}
                           required={true}
                           ref={(r) => (datepickerRef = r)}
                           selected={dtNascResponsavel}
