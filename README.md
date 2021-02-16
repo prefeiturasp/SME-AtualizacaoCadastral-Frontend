@@ -1,4 +1,4 @@
-# Sistema de atualização cadastral para os Programas Auxílio Uniforme e Material Escolar 
+# Sistema de atualização cadastral dos dados dos responsáveis
 
 # Estratégia de Transformação Digital e Governo Aberto na SME
 
@@ -32,7 +32,7 @@ Para **o(a) responsável por um(a) estudante matriculado(a) na Rede Municipal de
 
 É **uma aplicação web responsiva**
 
-Que **permite completar seus dados de cadastro sem precisar ir até a escola, a fim de estar apto a receber os benefícios dos Programas Auxílio Uniforme Escolar e Auxílio Material Escolar**
+Que **permite completar seus dados de cadastro sem precisar ir até a escola, a fim de estar apto a receber os benefícios dos Programas Auxílio Uniforme Escolar e Auxílio Material Escolar (quando fizerem parte do público desses programas)**
 
 Diferentemente do **modelo presencial de atualização do cadastro na secretaria da escola**
 
@@ -40,11 +40,11 @@ Nosso produto **garante agilidade e segurança na atualização cadastral**
 
 ## Objetivos de negócio 
 
-Completar as lacunas nos cadastros dos responsáveis pelos estudantes no Sistema Escola Online (EOL), permitindo que eles enviem os dados com segurança pela internet, sem precisar ir à escola – e que, assim, estejam aptos a receber os benefícios dos Programas Auxílio Uniforme Escolar e Auxílio Material Escolar.  
+Completar as lacunas nos cadastros dos responsáveis pelos estudantes no Sistema Escola Online (EOL), permitindo que eles enviem os dados com segurança pela internet, sem precisar ir à escola – e que, assim, estejam aptos a receber os benefícios dos Programas Auxílio Uniforme Escolar e Auxílio Material Escolar quando fizerem parte do público desses programas).  
 
 ## Personas 
 
-**Responsável pelo(a) estudante matriculado(a) na Rede Municipal de Ensino:** mãe, pai ou outro responsável legal cadastrado no Sistema Escola Online (EOL) que precise completar seus dados, a fim de receber os benefícios dos Programas Auxílio Uniforme Escolar e Auxílio Material Escolar. 
+**Responsável pelo(a) estudante matriculado(a) na Rede Municipal de Ensino:** mãe, pai ou outro responsável legal cadastrado no Sistema Escola Online (EOL) que precise completar seus dados. 
 
 **Servidores das escolas municipais:** acessam o ambiente administrativo e consultam o status dessa atualização cadastral na sua unidade. 
 
@@ -66,7 +66,7 @@ Completar as lacunas nos cadastros dos responsáveis pelos estudantes no Sistema
 
 - **Release 2:** 
 
--Landing page e formulário de atualização cadastral ampliado para todos os estudantes da Rede Municipal de Ensino (que recebem o material escolar).  
+-Landing page e formulário de atualização cadastral ampliado para todos os estudantes da Rede Municipal de Ensino.  
 - Ambiente administrativo logado para escolas, com consulta ao painel gerencial. 
 
 # Sobre o Time
@@ -114,7 +114,7 @@ Completar as lacunas nos cadastros dos responsáveis pelos estudantes no Sistema
 
 Em 2020 o novo modelo descentralizado de compra do uniforme escolar diretamente pelas famílias, nas lojas credenciadas, começou a ser implantado. Como regra de negócio, então, havia a necessidade do(a) responsável solicitar o crédito e realizar a atualização cadastral. E, para isso, foi construído um sistema completo de acompanhamento e tratamento das solicitações.   
 
-Em 2021, com o Programa Auxílio Uniforme Escolar, as famílias já não precisavam fazer a solicitação do benefício. No entanto, como muitos cadastros dos responsáveis ainda estavam incompletos, o sistema de atualização cadastral foi adaptado para sanar essas lacunas e já abranger também os estudantes de creche, Ensino Médio e Educação de Jovens e Adultos, que recebem apenas material escolar.  
+Em 2021, com o Programa Auxílio Uniforme Escolar, as famílias já não precisavam fazer a solicitação do benefício. No entanto, como muitos cadastros dos responsáveis ainda estavam incompletos, o sistema de atualização cadastral foi adaptado para sanar essas lacunas e já abranger todos os estudantes com matrícula ativa da Rede Municipal de Ensino, inclusive os de CEI, Ensino Médio e Educação de Jovens e Adultos (que recebem apenas material escolar).  
 
 # Links Úteis 
 
