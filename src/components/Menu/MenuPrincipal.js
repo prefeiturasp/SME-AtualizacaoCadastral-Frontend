@@ -17,30 +17,6 @@ export const MenuPrincipal = () => {
             </a>
           </h1>
         </div>
-        <div
-          id="menu-principal"
-          className="col-lg-9 col-sm-12 links-menu d-flex flex-wrap  align-items-end justify-content-lg-end justify-content-start pr-lg-0 mb-xs-4"
-        >
-          <ul className="nav nav-tabs border-0">
-            <li className="nav-item">
-              <a href="https://portaldeuniformes.sme.prefeitura.sp.gov.br/familia">
-                <button className="nav-link text-secondary mb-1 pb-0">
-                  Busque loja credenciada
-                </button>
-              </a>
-            </li>
-
-            <li className="nav-item">
-              <a
-                title="Link externo para avise sobre problemas"
-                className="nav-link text-secondary mb-1 pb-0"
-                href="https://sp156.prefeitura.sp.gov.br/portal/servicos/informacao?servico=3616"
-              >
-                Avise sobre problemas
-              </a>
-            </li>
-          </ul>
-        </div>
       </div>
     </div>
   );
