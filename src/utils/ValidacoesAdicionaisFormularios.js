@@ -23,7 +23,7 @@ export const YupSignupSchemaCadastro = () => {
                 function (value) {
                     return !new RegExp(/([aA-zZ])\1\1/).test(value)
                 })
-            .test('test-name', 'Não são permitas palavras inapropriadas',
+            .test('test-name', 'Não são permitidas palavras inapropriadas',
                 function (value) {
                     let retorno = !validarPalavrao(value, palavroesContext.listaPalavroes)
                     return retorno
@@ -85,10 +85,14 @@ export const YupSignupSchemaCadastro = () => {
                 function (value) {
                     return !new RegExp(/([aA-zZ])\1\1/).test(value)
                 })
-            .test('test-name', 'Não são permitas palavras inapropriadas',
+            .test('test-name', 'Não são permitidas palavras inapropriadas',
                 function (value) {
                     let retorno = !validarPalavrao(value, palavroesContext.listaPalavroes)
                     return retorno
+                })
+            .test('test-name', 'Não permite letra solta',
+                function (value) {
+                    return !new RegExp(/(\s[a-zA-Z]\s|^[a-zA-Z]\s|\s[a-zA-Z]$)/g).test(value)
                 })
             .test('test-name', 'Aqui você deve digitar o nome da sua mãe',
                 function (value) {
