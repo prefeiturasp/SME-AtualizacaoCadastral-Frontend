@@ -171,8 +171,8 @@ export const Login = () => {
         formEventRecebido.preventDefault();
         if (verificaCodEolBloqueado(data.codigoEol)) {
             mensagem.setAbrirModal(true);
-            mensagem.setTituloModal("Acesso Bloqueado");
-            mensagem.setMsg("Codigo EOL Bloqueado. Dirija-se à escola do aluno");
+            mensagem.setTituloModal("Acesso ao formulário bloqueado");
+            mensagem.setMsg("Você tentou acessar o formulário por três vezes seguidas, usando Código EOL ou data de nascimento do estudante incorretos. Por uma questão de segurança, agora a atualização cadastral só pode ser realizada diretamente na escola.");
             setCollapse("");
             setBtnDisable(false);
             limpaFormulario(formEventRecebido);
