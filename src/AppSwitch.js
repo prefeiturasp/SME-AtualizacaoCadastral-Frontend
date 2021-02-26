@@ -10,7 +10,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "react-app-polyfill/ie11";
 import "react-app-polyfill/stable";
-import App from "./App";
+import ReactGA from "react-ga";
 import AppCadastro from "./AppCadastro";
 
 import { NotificacaoContextProvider } from "./context/NotificacaoContext";
@@ -18,6 +18,9 @@ import { PalavroesContextProvider } from "./context/PalavroesContext";
 import { routes, path_adm, public_routes } from "./routing/routes";
 import authService from "./services/auth.service";
 import {Pagina404} from "./pages/404";
+
+ReactGA.initialize("UA-85250794-17");
+ReactGA.pageview(window.location.pathname + window.location.search);
 
 toast.configure();
 
