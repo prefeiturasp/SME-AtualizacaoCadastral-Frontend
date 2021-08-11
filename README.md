@@ -52,6 +52,7 @@ Completar as lacunas nos cadastros dos responsáveis pelos estudantes no Sistema
 
 - Formulário online para responsáveis completarem os dados de cadastro necessários para que recebam os benefícios dos Programas Auxílio Uniforme Escolar e Auxílio Material Escolar. 
 - Ambiente administrativo para que escolas acessem um painel gerencial com o status da atualização cadastral em cada unidade educacional.  
+- A partir de agosto de 2021, o usuário que acessar o portal da Atualização Cadastral será direcionado para uma página de consulta de atualização cadastral.
 
 ## Jornadas 
 
@@ -62,11 +63,11 @@ Completar as lacunas nos cadastros dos responsáveis pelos estudantes no Sistema
 
 - **Release 1:** 
 
--Landing page e formulário de atualização cadastral (exclusivo para público que recebe uniforme escolar).  
+- Landing page e formulário de atualização cadastral (exclusivo para público que recebe uniforme escolar).  
 
 - **Release 2:** 
 
--Landing page e formulário de atualização cadastral ampliado para todos os estudantes da Rede Municipal de Ensino.  
+- Landing page e formulário de atualização cadastral ampliado para todos os estudantes da Rede Municipal de Ensino.  
 - Ambiente administrativo logado para escolas, com consulta ao painel gerencial. 
 
 # Sobre o Time
