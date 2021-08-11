@@ -36,6 +36,7 @@ h1 {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    text-align: center;
 
     @media #{$mq-mobile} {
       top: 26%;
@@ -43,6 +44,8 @@ h1 {
 
     h1 {
       color: $corPretoPortal;
+      font-size: 32px;
+      line-height: 37px;
 
       @media #{$mq-mobile} {
         font-size: 30px;
@@ -51,16 +54,28 @@ h1 {
     }
 
     p {
-      font-size: 20px;
-      line-height: 26px;
+      font-size: 18px;
+      line-height: 21px;
       font-style: normal;
       font-weight: bold;
 
       @media #{$mq-mobile} {
-        font-size: 16px;
+        font-size: 14px;
         line-height: normal;
       }
 
+    }
+
+    span{
+      font-size: 14px;
+      line-height: 16px;
+      font-style: normal;
+      font-weight: bold;
+
+      @media #{$mq-mobile} {
+        font-size: 12px;
+        line-height: normal;
+      }
     }
   }
 }
@@ -81,4 +96,26 @@ h1 {
     line-height: 0.8em;
   }
 
+}
+
+.container-resultado{
+
+  border: 1px solid;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+.cont-amarelo{
+  background: #EAAA5E;
+  border-color: #C0640E;
+}
+
+.cont-verde{
+  background: #8DC773;
+  border-color: #297805;
+}
+
+.cont-vermelho{
+  background: #FD756D;
+  border-color: #B40C02;
 }
