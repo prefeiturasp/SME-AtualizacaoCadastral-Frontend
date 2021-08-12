@@ -1,7 +1,7 @@
 import { API_URL } from "../config";
 
 export const getSituacaoCPF = getParams => {
-  const url = `${API_URL}/base-cadastros/${getParams}`;
+  const url = `${API_URL}/base-cadastros/${getParams}/`;
   let status = 0;
   return fetch(url, {
     method: "GET",
