@@ -16,33 +16,37 @@ h1 {
   url("../../assets/img/banner-home.png");
 
   color: $corPretoPortal;
-  height: 490px;
+  height: 550px;
   background-repeat: no-repeat;
   background-size: auto;
-  background-position: top right;
+  background-position: center right;
 
   @media #{$mq-mobile} {
     background: url("../../assets/img/banner-home-mobile.png");
-    height: 627px;
+    height: 700px;
     background-size: cover;
     background-position: bottom center;
   }
 
 
   .conteudo {
-
     margin: 0 auto;
     z-index: 1;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    font-size: 14px;
+    line-height: 16px;
 
     @media #{$mq-mobile} {
       top: 26%;
     }
 
-    h1 {
+    .titulo {
       color: $corPretoPortal;
+      font-size: 32px;
+      line-height: 37px;
+      text-align: center;
 
       @media #{$mq-mobile} {
         font-size: 30px;
@@ -50,17 +54,36 @@ h1 {
 
     }
 
-    p {
-      font-size: 20px;
-      line-height: 26px;
+    .subtitulo {
+      font-size: 18px;
+      line-height: 21px;
       font-style: normal;
       font-weight: bold;
+      text-align: center;
 
       @media #{$mq-mobile} {
-        font-size: 16px;
+        font-size: 14px;
         line-height: normal;
       }
+    }
 
+    .subtitulo-menor{
+      font-style: normal;
+      font-weight: bold;
+      text-align: center;
+
+      @media #{$mq-mobile} {
+        font-size: 12px;
+        line-height: normal;
+      }
+    }
+
+    .label-consulta{
+      text-align: left;
+    }
+
+    .italic{
+      font-style: italic;
     }
   }
 }
@@ -81,4 +104,51 @@ h1 {
     line-height: 0.8em;
   }
 
+}
+
+.container-resultado{
+  border: 1px solid;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 8px 24px;
+  font-weight: bold;
+  line-height: 18px;
+  text-align: center;
+}
+
+.cont-amarelo{
+  background: #EAAA5E;
+  border-color: #C0640E;
+}
+
+.cont-verde{
+  background: #8DC773;
+  border-color: #297805;
+}
+
+.cont-vermelho{
+  background: #FD756D;
+  border-color: #B40C02;
+}
+
+.span_erro{
+  color: red;
+  font-size: 0.9rem;
+  display: inline-block;
+}
+
+.texto-cadastro-completo{
+  font-style: italic;
+  font-weight: bold;
+  text-align: center;
+  margin: 16px 0;
+}
+
+.form-center{
+  margin: auto;
+
+  .form-row{
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
 }

@@ -8,6 +8,14 @@ export const YupSignupSchemaLogin = yup.object().shape({
     codigoEol: yup.number().typeError('Campo EOL precisa ser numérico').required("Campo código EOL é obrigatório"),
 });
 
+export const YupSignupSchemaConsulta = yup.object().shape({
+  cpf: yup.string().required("CPF do responsável é obrigatório")
+          .test('test-name', 'Digite um CPF válido',
+              function (value) {
+                  return validarCPF(value)
+              })
+});
+
 export const YupSignupSchemaCadastro = () => {
 
     const palavroesContext = useContext(PalavroesContext);
