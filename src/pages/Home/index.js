@@ -39,12 +39,12 @@ export const Home = () => {
                     <div className="conteudo">
                         <div className="col-lg-7 col-sm-12 col-xl-5">
                             <h1 class="titulo" id="conteudo">
-                              Consulte seus dados cadastrais
+                              Consulte os seus dados cadastrais
                             </h1>
                         </div>
                         <div className="col-lg-6 col-sm-12 col-xl-5">
                             <p class="subtitulo">
-                              Digite o CPF do responsável pelos(as) estudante(s) cadastro(s) na Rede Municipal de Ensino, e verifique a situação do seu cadastro para realizar as medias necessárias.
+                              Digite o CPF do responsável pelos(as) estudante(s) cadastro(s) na Rede Municipal de Ensino, e verifique a situação do seu cadastro para realizar as medidas necessárias.
                             </p>
                         </div>
                         <div className="col-lg-6 col-sm-12 col-xl-5">
