@@ -15,6 +15,7 @@ export const Home = () => {
     });
 
     const cpfRef = useRef();
+    const resultadoRef = useRef();
 
     const [situacao, setSituacao] = useState(0)
     const [dataCorteLote, setDataCorteLote] = useState("")
@@ -23,6 +24,7 @@ export const Home = () => {
     const onSubmitCPF = async (value, formevent) => {
       let response = await getSituacaoCPF(value.cpf.replace(/[^0-9]/g, ""));
       setSituacao(response.data.situacao ? response.data.situacao : response.status)
+      resultadoRef.current.scrollIntoView();
     };
 
     useEffect(() => {
@@ -35,35 +37,30 @@ export const Home = () => {
     return (
         <Fragment>
             <div className="w-100 banner-home position-relative">
-                <div className="container">
+                <div className="h-100 container">
                     <div className="conteudo">
-                        <div className="col-lg-7 col-sm-12 col-xl-5">
+                      <div className="form" ref={resultadoRef}>
+                        <div className="col-lg-6 col-sm-12 col-xl-6">
                             <h1 class="titulo" id="conteudo">
-                              Consulte os seus dados cadastrais
+                              Uniforme e Material Escolar
                             </h1>
                         </div>
-                        <div className="col-lg-6 col-sm-12 col-xl-5">
+                        <div className="col-lg-6 col-sm-12 col-xl-6">
                             <p class="subtitulo">
-                              Digite o CPF do responsável pelos(as) estudante(s) cadastro(s) na Rede Municipal de Ensino, e verifique a situação do seu cadastro para realizar as medidas necessárias.
-                            </p>
-                        </div>
-                        <div className="col-lg-6 col-sm-12 col-xl-5">
-                            <p class="subtitulo-menor">
-                            Caso não saiba quem está cadastrado(a) ou queria atualizar essa informação, procure a secretaria da escola em que seu(sua) filho(a) está matriculado(a). Os telefones de todas as unidades podem ser consultados no link:
-                            <a href="https://escolaaberta.sme.prefeitura.sp.gov.br/" target="blank">https://escolaaberta.sme.prefeitura.sp.gov.br/</a>
+                            Verifique o seu cadastro
                             </p>
                         </div>
                         
-                        <div className="col-lg-6 col-sm-12 col-xl-5">
+                        <div className="col-lg-6 col-sm-12 col-xl-6">
                           <form
                             onSubmit={handleSubmit(onSubmitCPF)}
                             name="consultaCadastro"
                             id="consultaCadastro"
-                            class="w-75 form-center"
+                            class="form-consulta"
                           >
-                            <label class="label-consulta" id="cpf">Informe seu CPF</label>
+                            <label class="label-consulta" id="cpf">Informe o CPF do(a) responsável pelo(a) estudante</label>
                             <div className="row form-row">
-                              <div className="col-lg-8" >
+                              <div className="col-lg-8 col-sm-12">
                                 <InputMask
                                     mask="999.999.999-99"
                                     ref={e => {
@@ -78,54 +75,64 @@ export const Home = () => {
                               {errors.cpf && <span className="span_erro mt-1">{errors.cpf.message}</span>}
                               </div>
 
-                              <div className="col-lg-4" >
+                              <div className="col-lg-4 col-sm-8 botao-form" >
                                 <BtnCustomizado
                                     type="submit"
-                                    classeCss="btn btn-outline-primary btn-block btn-abrir-formulario"
+                                    classeCss="btn btn-primary btn-block btn-abrir-formulario"
                                     texto="Consultar"
                                 />
                               </div>
                             </div>
-                            <label class="label-consulta italic">Informações atualizadas até o dia {dataCortePlanilha}</label>
+                            <label class="label-consulta italic text-center">Informações atualizadas até o dia {dataCortePlanilha}</label>
                           </form>
                         </div>
-                        
+                      </div>
 
-                        <div className="col-lg-6 col-sm-12 col-xl-5 mt-3">
+                        <div className="col-lg-6 col-sm-12 col-xl-6 mt-3">
 
                           {situacao === 1 && 
                             <div className="container-resultado cont-amarelo"> 
-                              Dirija-se a DRE pertencente a sua unidade escolar com os documentos necessários para corrigir ou atualizar o seu cadastro.
-                              Encontre a DRE da sua Unidade Educacional no link:
-                              <br/>
-                              <a href="https://escolaaberta.sme.prefeitura.sp.gov.br/" target="blank">https://escolaaberta.sme.prefeitura.sp.gov.br/</a>
+                              <p class="titulo-resultado"><i class="fas fa-exclamation-triangle"/> Aguarde o contato da unidade escolar.</p>
+                              <p class="subtitulo-resultado">Para corrigir ou atualizar o cadastro, são necessários os seguintes documentos:</p>
+                              <ul>
+                                <li class="texto">RG e CPF ou CNH;</li>
+                                <li class="texto">Para estrangeiros: RNE ou CRNM em data vigente;</li>
+                                <li class="texto">Certidão de nascimento dos(as) estudantes;</li>
+                              </ul>
                             </div>
                           }
 
                           {situacao === 2 && 
                             <div className="container-resultado cont-amarelo"> 
-                              Dirija-se a unidade escolar com os documentos necessários para corrigir ou atualizar o seu cadastro.
+                              <p class="titulo-resultado"><i class="fas fa-exclamation-triangle"/> Dirija-se a sua Unidade Escolar</p>
+                              <p class="subtitulo-resultado">Para corrigir ou atualizar o seu cadastro leve os seguintes documentos:</p>
+                              <ul>
+                                <li class="texto">RG e CPF ou CNH;</li>
+                                <li class="texto">Para estrangeiros: RNE ou CRNM em data vigente;</li>
+                                <li class="texto">Certidão de nascimento dos(as) estudantes;</li>
+                              </ul>
                             </div>
                           }
 
                           {situacao === 3 && 
                             <>
                               <div className="container-resultado cont-verde"> 
-                                Seu cadastro está completo, baixe o aplicativo e crie sua conta. 
-                                <br/>
-                                Mercado Pago:  <a href="https://youtu.be/pOTemAlTt6Q" target="blank">https://youtu.be/pOTemAlTt6Q</a>
-                                <br/>
-                                Blupay: <a href="https://blupay.com.br/materialescolar" target="blank">https://blupay.com.br/materialescolar</a>
-                              </div>
-                              <div className="texto-cadastro-completo">
-                                Se você atualizou o seu cadastro após o dia {dataCorteLote}, é necessário aguardar a disponibilização do próximo lote dos benefícios pertinentes aos Programas Auxílio Uniforme e Material Escolar.
+                                <p class="titulo-resultado"><i class="fas fa-check-circle"/> Seu cadastro está completo</p>
+
+                                <p className="subtitulo-resultado">Baixe o aplicativo, crie sua conta e faça sua compra</p>
+
+                                <p class="texto">Mercado Pago:  <a href="https://www.mercadopago.com.br/uniformessaopaulo/" target="blank">https://www.mercadopago.com.br/uniformessaopaulo/</a></p>
+
+                                <p class="texto">Blupay: <a href="https://blupay.com.br/materialescolar" target="blank">https://blupay.com.br/materialescolar</a></p>
+
+                                <p class="texto-menor">Se você completou ou atualizou o seu cadastro após o dia {dataCorteLote}, aguarde a liberação do próximo lote.</p>
                               </div>
                             </>
                           }
 
                           {situacao === 404 && 
                             <div className="container-resultado cont-vermelho"> 
-                              Procure sua unidade escolar.
+                              <p className="titulo-resultado mb-0"><i class="fas fa-times-circle"/> Cadastro não encontrado. Procure sua Unidade Escolar.</p> 
                             </div>
                           }
                         </div>
