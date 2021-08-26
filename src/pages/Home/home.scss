@@ -23,7 +23,7 @@ h1 {
 
   @media #{$mq-mobile} {
     background: url("../../assets/img/banner-home-mobile.png");
-    height: 700px;
+    height: 850px;
     background-size: cover;
     background-position: bottom center;
   }
@@ -213,7 +213,7 @@ h1 {
     margin: auto;
 
     .botao-form{
-      width: 40%;
+      width: 60%;
       margin-top: 8px;
       text-align: center;
     }
