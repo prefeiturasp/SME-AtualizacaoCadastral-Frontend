@@ -55,6 +55,7 @@ h1 {
       line-height: 47px;
       text-align: center;
       font-weight: bold;
+      color: black;
 
       @media #{$mq-mobile} {
         font-size: 32px;
