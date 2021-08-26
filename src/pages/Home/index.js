@@ -121,9 +121,9 @@ export const Home = () => {
 
                                 <p className="subtitulo-resultado">Baixe o aplicativo, crie sua conta e faça sua compra</p>
 
-                                <p class="texto">Mercado Pago:  <a href="https://www.mercadopago.com.br/uniformessaopaulo/" target="blank">https://www.mercadopago.com.br/uniformessaopaulo/</a></p>
+                                <p class="texto">Uniforme Escolar - Mercado Pago:  <a href="https://www.mercadopago.com.br/uniformessaopaulo/" target="blank">https://www.mercadopago.com.br/uniformessaopaulo/</a></p>
 
-                                <p class="texto">Blupay: <a href="https://blupay.com.br/materialescolar" target="blank">https://blupay.com.br/materialescolar</a></p>
+                                <p class="texto">Material Escolar - BluPay: <a href="https://blupay.com.br/materialescolar" target="blank">https://blupay.com.br/materialescolar</a></p>
 
                                 <p class="texto-menor">Se você completou ou atualizou o seu cadastro após o dia {dataCorteLote}, aguarde a liberação do próximo lote.</p>
                               </div>
