@@ -97,7 +97,7 @@ A Atualização Cadastral teve uma primeira vesão com o objetivo de completar a
 <tbody>
 <tr>
 <td>Product Owner</td>
-<td>Thaís Brianezi </td>
+<td>Natália Goes</td>
 </tr>
 <tr>
 <td>Agente de Governança</td>
