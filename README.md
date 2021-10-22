@@ -1,5 +1,3 @@
-# SME-AtualizacaoCadastral-Frontend
-
 # Sistema de atualização cadastral dos dados dos responsáveis
 
 # Estratégia de Transformação Digital e Governo Aberto na SME
