@@ -119,13 +119,9 @@ export const Home = () => {
                               <div className="container-resultado cont-verde"> 
                                 <p class="titulo-resultado"><i class="fas fa-check-circle"/> Seu cadastro está completo</p>
 
-                                <p className="subtitulo-resultado">Baixe o aplicativo, crie sua conta e faça sua compra</p>
+                                <p className="subtitulo-resultado">Baixe o aplicativo Kit Escolar DuePay no celular ou tablet e faça sua compra.</p>
 
-                                <p class="texto">Uniforme Escolar - Mercado Pago:  <a href="https://www.mercadopago.com.br/uniformessaopaulo/" target="blank">https://www.mercadopago.com.br/uniformessaopaulo/</a></p>
-
-                                <p class="texto">Material Escolar - BluPay: <a href="https://blupay.com.br/materialescolar" target="blank">https://blupay.com.br/materialescolar</a></p>
-
-                                <p class="texto-menor">Se você completou ou atualizou o seu cadastro após o dia {dataCorteLote}, aguarde a liberação do próximo lote.</p>
+                                <p class="texto-menor">Se você registrou o CPF de responsável no cadastro da criança após o dia {dataCorteLote}, aguarde a liberação do próximo lote.</p>
                               </div>
                             </>
                           }
