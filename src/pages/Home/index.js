@@ -119,7 +119,7 @@ export const Home = () => {
                               <div className="container-resultado cont-verde"> 
                                 <p class="titulo-resultado"><i class="fas fa-check-circle"/> Seu cadastro está completo</p>
 
-                                <p className="subtitulo-resultado">Baixe o aplicativo Kit Escolar DuePay no celular ou tablet e faça sua compra.</p>
+                                <p className="subtitulo-resultado">Baixe o aplicativo Kit Escolar DUEPAY no celular ou tablet e faça sua compra.</p>
 
                                 <p class="texto-menor">Se você registrou o CPF de responsável no cadastro da criança após o dia {dataCorteLote}, aguarde a liberação do próximo lote.</p>
                               </div>
