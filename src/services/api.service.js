@@ -1,19 +1,41 @@
-import { API_URL } from "../config";
-import { AUTH_TOKEN } from "./constants";
-
 export const getAPIVersion = () => {
-  const url = `${API_URL}/versao/`;
+  const url = 'https://api.github.com/repos/prefeiturasp/SME-AtualizacaoCadastral-Backend/releases/latest';
   let status = 0;
   return fetch(url, {
     method: "GET",
-    headers: AUTH_TOKEN,
+    headers: {
+      "Accept-Language": "pt-br",
+      "Content-Type": "application/json",
+    },
   })
     .then((res) => {
       status = res.status;
       return res.json();
     })
     .then((data) => {
-      return { data: data, status: status };
+      return { data: data.name, status: status };
+    })
+    .catch((error) => {
+      return error;
+    });
+};
+
+export const getFrontVersion = () => {
+  const url = 'https://api.github.com/repos/prefeiturasp/SME-AtualizacaoCadastral-Frontend/releases/latest';
+  let status = 0;
+  return fetch(url, {
+    method: "GET",
+    headers: {
+      "Accept-Language": "pt-br",
+      "Content-Type": "application/json",
+    },
+  })
+    .then((res) => {
+      status = res.status;
+      return res.json();
+    })
+    .then((data) => {
+      return { data: data.name, status: status };
     })
     .catch((error) => {
       return error;
