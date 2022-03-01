@@ -4,7 +4,6 @@ ENV IS_DOCKER_ENVIRONMENT=true
 WORKDIR /app
 COPY . ./
 RUN npm install 
-RUN npm run-script postinstall
 RUN npm run-script build
 
 # replace strings, this way we can pass parameters to static files.
