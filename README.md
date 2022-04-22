@@ -105,11 +105,11 @@ A Atualização Cadastral teve uma primeira vesão com o objetivo de completar a
 </tr>
 <tr>
 <td>Gerente de Projeto</td>
-<td>Andrea Paiva </td>
+<td>Aline Freitas</td>
 </tr>
 <tr>
 <td>Scrum Master</td>
-<td>Augusto César de  Brito Silva</td>
+<td>-</td>
 </tr>
 <tr>
 <td>Analista Programador</td>
