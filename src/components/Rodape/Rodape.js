@@ -1,5 +1,5 @@
 import React from "react";
-import logoPrefeitura from "../../assets/img/logo-prefeitura.png";
+import logoPrefeitura from "../../assets/img/footer_logo.png";
 import "./rodape.scss";
 
 export const Rodape = (props) => {
