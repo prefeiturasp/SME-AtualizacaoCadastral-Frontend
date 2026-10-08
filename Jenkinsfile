@@ -6,7 +6,7 @@ pipeline {
       namespace = "${env.branchname == 'develop' ? ' atualcad-dev' : env.branchname == 'homolog' ? 'atualcad-hom' : env.branchname == 'homolog-r2' ? 'atualcad-hom2' : 'sme-atualizacaocadastral' }"
     }
   
-        agent { kubernetes { 
+    agent { kubernetes { 
                   label 'builder'
                   defaultContainer 'builder'
                 }
@@ -26,11 +26,11 @@ pipeline {
 
         stage('AnaliseCodigo') {
 	      when { branch 'homolog' }
-          agent { kubernetes { 
+	  agent { kubernetes { 
                   label 'python36'
                   defaultContainer 'builder'
                 }
-              }
+              }	
           steps {
               withSonarQubeEnv('sonarqube-local'){
                 sh 'echo "[ INFO ] Iniciando analise Sonar..." && sonar-scanner \
@@ -71,7 +71,7 @@ pipeline {
                     withCredentials([file(credentialsId: "${kubeconfig}", variable: 'config')]){
 			sh('if [ -f '+"$home"+'/.kube/config ];then rm -f '+"$home"+'/.kube/config; fi')
                         sh('cp $config '+"$home"+'/.kube/config')
-                        sh 'kubectl rollout restart deployment/atualizacaocadastral-frontend -n ${namespace}'
+                        sh 'kubectl rollout restart deployment/atualizacaocadastral-frontend -n sme-atualizacaocadastral'
                         sh('if [ -f '+"$home"+'/.kube/config ];then rm -f '+"$home"+'/.kube/config; fi')
                     }
                 }
