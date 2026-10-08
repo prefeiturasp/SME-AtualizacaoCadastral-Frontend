@@ -1,5 +1,5 @@
 import React from "react";
-import logoEducacaoSP from "../../assets/img/educacao_sp.png";
+import logoPrefeitura from "../../assets/img/header_logo.png";
 import "./menu-principal.scss";
 
 export const MenuPrincipal = () => {
@@ -10,8 +10,8 @@ export const MenuPrincipal = () => {
           <h1 className="m-0">
             <a href="https://educacao.sme.prefeitura.sp.gov.br/">
               <img
-                src={logoEducacaoSP}
-                alt="Escola Aberta"
+                src={logoPrefeitura}
+                alt="Prefeitura de São Paulo"
                 className="img-fluid"
               />
             </a>
